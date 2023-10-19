@@ -1,0 +1,19 @@
+results-20230926-221712/SHMEM/conflict/035-shmem-conflict-put_signal-put_signal-remote-yes.c:42:53: warning: incompatible pointer types passing 'int *' to parameter of type 'uint64_t *' (aka 'unsigned long *') [-Wincompatible-pointer-types]
+        shmem_int_put_signal(&remote, &localbuf, 1, &remote2, 1, SHMEM_SIGNAL_SET, 1);
+                                                    ^~~~~~~~
+/usr/include/shmem.h:210:110: note: passing argument to parameter 'sig_addr' here
+SHMEM_FUNCTION_ATTRIBUTES void shmem_int_put_signal(int *target, const int *source, size_t nelems, uint64_t *sig_addr, uint64_t signal, int sig_op, int pe);
+                                                                                                             ^
+results-20230926-221712/SHMEM/conflict/035-shmem-conflict-put_signal-put_signal-remote-yes.c:49:53: warning: incompatible pointer types passing 'int *' to parameter of type 'uint64_t *' (aka 'unsigned long *') [-Wincompatible-pointer-types]
+        shmem_int_put_signal(&remote, &localbuf, 1, &remote2, 1, SHMEM_SIGNAL_SET, 1);
+                                                    ^~~~~~~~
+/usr/include/shmem.h:210:110: note: passing argument to parameter 'sig_addr' here
+SHMEM_FUNCTION_ATTRIBUTES void shmem_int_put_signal(int *target, const int *source, size_t nelems, uint64_t *sig_addr, uint64_t signal, int sig_op, int pe);
+                                                                                                             ^
+2 warnings generated.
+PE 0: localbuf = 1, remote = 0, 
+PE 1: localbuf = 1, remote = 2, 
+PE 2: localbuf = 2, remote = 0, 
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 1
+Process 1: Execution finished, variable contents: remote = 2, localbuf = 1
+Process 2: Execution finished, variable contents: remote = 0, localbuf = 2

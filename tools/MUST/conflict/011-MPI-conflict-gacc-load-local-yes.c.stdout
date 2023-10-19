@@ -1,0 +1,46 @@
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] MUST configuration ... distributed checks without application crash handling
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: ThreadSanitizer support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Note: MPI RMA support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Executing application:
+value is 0
+LLVMSymbolizer: error reading file: No such file or directory
+==================
+[1m[31mWARNING: ThreadSanitizer: data race (pid=8431)
+[1m[0m[1m[34m  Write of size 4 at 0x7ffd01dc9334 by thread T5:
+[1m[0m    #0 MPI_Get_accumulate <null> (libpnmpi.so+0x876d0) (BuildId: e3db7a82e7591a6dd7516a54d7c6caa275de0cfa)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x000100000000)
+    #3 <null> <null> (0x000100000005)
+    #4 main /rmaracebench/results-20230926-222302/MUST/conflict/011-MPI-conflict-gacc-load-local-yes.c:57:9 (011-MPI-conflict-gacc-load-local-yes.c.exe-must+0xd1bc7) (BuildId: 29e6fe7658eae162f675f25269ede94bf7f77c84)
+
+[1m[34m  Previous read of size 4 at 0x7ffd01dc9334 by main thread:
+[1m[0m    #0 main /rmaracebench/results-20230926-222302/MUST/conflict/011-MPI-conflict-gacc-load-local-yes.c:59:33 (011-MPI-conflict-gacc-load-local-yes.c.exe-must+0xd1bd0) (BuildId: 29e6fe7658eae162f675f25269ede94bf7f77c84)
+
+[1m[32m  Location is stack of main thread.
+
+[1m[0m[1m[32m  Location is global '??' at 0x7ffd01daa000 ([stack]+0x1f334)
+
+[1m[0m[1m[36m  Thread T5 (tid=0, running) created by thread T3 at:
+[1m[0m    #0 must::OriginChecks::OriginChecks(char const*) <null> (liboriginChecks.so+0xe51b) (BuildId: 2e30e8086ec3d9955ca4cb53271e0b6f5be918e2)
+
+SUMMARY: ThreadSanitizer: data race (/opt/must/lib/libpnmpi.so+0x876d0) (BuildId: e3db7a82e7591a6dd7516a54d7c6caa275de0cfa) in MPI_Get_accumulate
+==================
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 2
+Process 0: Execution finished, variable contents: value = 0, value2 = 2, win_base[0] = 0
+/usr/bin/addr2line: '-f': No such file
+[MUST-REPORT] Error: from: call main@0: Local buffer data race at rank 0 between a write of size 4 at MPI_Get_accumulate@1 and a previous read of size 4 at main@2. References (possibly of representative): Reference 1: call MPI_Get_accumulate@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20230926-222302/MUST/conflict/011-MPI-conflict-gacc-load-local-yes.c:57
+[MUST-REPORT] Reference 2: call mainmain
+[MUST-REPORT] /rmaracebench/results-20230926-222302/MUST/conflict/011-MPI-conflict-gacc-load-local-yes.c:59
+[MUST-REPORT] @rank 0, threadid 0;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20230926-222302/MUST/conflict/011-MPI-conflict-gacc-load-local-yes.c:59
+[MUST-REPORT] 
+ThreadSanitizer: reported 1 warnings
+[MUST] Execution finished.

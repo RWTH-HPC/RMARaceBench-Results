@@ -1,0 +1,21 @@
+[bb03880e13fc:33818] *** Process received signal ***
+[bb03880e13fc:33818] Signal: Segmentation fault (11)
+[bb03880e13fc:33818] Signal code: Address not mapped (1)
+[bb03880e13fc:33818] Failing at address: 0xfffffffe
+[bb03880e13fc:33818] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3bfd0)[0x7fbb698f2fd0]
+[bb03880e13fc:33818] [ 1] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(+0x4e01)[0x7fbb68a2fe01]
+[bb03880e13fc:33818] [ 2] /lib/x86_64-linux-gnu/libopen-pal.so.40(opal_progress+0x2c)[0x7fbb693dde1c]
+[bb03880e13fc:33818] [ 3] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_request_default_test+0x30)[0x7fbb69c0f560]
+[bb03880e13fc:33818] [ 4] /lib/x86_64-linux-gnu/libmpi.so.40(PMPI_Test+0x4e)[0x7fbb69c4f64e]
+[bb03880e13fc:33818] [ 5] /opt/parcoach/lib/libParcoachInstrumentation.so(+0x59af)[0x7fbb69d099af]
+[bb03880e13fc:33818] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xd44a3)[0x7fbb696d44a3]
+[bb03880e13fc:33818] [ 7] /lib/x86_64-linux-gnu/libc.so.6(+0x89044)[0x7fbb69940044]
+[bb03880e13fc:33818] [ 8] /lib/x86_64-linux-gnu/libc.so.6(+0x1095fc)[0x7fbb699c05fc]
+[bb03880e13fc:33818] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 2 with PID 0 on node bb03880e13fc exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

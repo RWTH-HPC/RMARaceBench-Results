@@ -1,0 +1,31 @@
+[bb03880e13fc:33285] *** Process received signal ***
+[bb03880e13fc:33285] Signal: Segmentation fault (11)
+[bb03880e13fc:33285] Signal code: Address not mapped (1)
+[bb03880e13fc:33285] Failing at address: 0xfffffffe
+Error when inserting memory access of type RMA_READ from file results-20230926-222302/PARCOACH-dynamic/conflict/026-MPI-conflict-put-acc-remote-yes.c:65 with already inserted interval of type LOCAL_WRITE from file results-20230926-222302/PARCOACH-dynamic/conflict/026-MPI-conflict-put-acc-remote-yes.c:63.
+The program will be exiting now with MPI_Abort.
+[bb03880e13fc:33285] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3bfd0)[0x7f6638a19fd0]
+[bb03880e13fc:33285] [ 1] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(+0x4e01)[0x7f6637b57e01]
+[bb03880e13fc:33285] [ 2] /lib/x86_64-linux-gnu/libopen-pal.so.40(opal_progress+0x2c)[0x7f6638578e1c]
+[bb03880e13fc:33285] [ 3] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_request_default_test+0x30)[0x7f6638d36560]
+[bb03880e13fc:33285] [ 4] /lib/x86_64-linux-gnu/libmpi.so.40(PMPI_Test+0x4e)[0x7f6638d7664e]
+[bb03880e13fc:33285] [ 5] /opt/parcoach/lib/libParcoachInstrumentation.so(+0x59af)[0x7f6638e309af]
+[bb03880e13fc:33285] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xd44a3)[0x7f66386d44a3]
+[bb03880e13fc:33285] [ 7] /lib/x86_64-linux-gnu/libc.so.6(+0x89044)[0x7f6638a67044]
+[bb03880e13fc:33285] [ 8] /lib/x86_64-linux-gnu/libc.so.6(+0x1095fc)[0x7f6638ae75fc]
+[bb03880e13fc:33285] *** End of error message ***
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 2 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 2 with PID 0 on node bb03880e13fc exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

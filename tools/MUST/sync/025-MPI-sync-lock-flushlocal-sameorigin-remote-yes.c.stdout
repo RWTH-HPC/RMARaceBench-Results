@@ -1,0 +1,21 @@
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] MUST configuration ... distributed checks without application crash handling
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: ThreadSanitizer support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Note: MPI RMA support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Executing application:
+Process 0: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 1
+/usr/bin/addr2line: '-f': No such file
+/usr/bin/addr2line: '-f': No such file
+[MUST-REPORT] Error: from: call MPI_Get@0: Found RMA data race (overlapping accesses) on rank 1 originating from rank 0 References (possibly of representative): Reference 1: call MPI_Get@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20230926-222302/MUST/sync/025-MPI-sync-lock-flushlocal-sameorigin-remote-yes.c:62
+[MUST-REPORT] Reference 2: call MPI_Put@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20230926-222302/MUST/sync/025-MPI-sync-lock-flushlocal-sameorigin-remote-yes.c:59
+[MUST-REPORT] 
+[MUST] Execution finished.

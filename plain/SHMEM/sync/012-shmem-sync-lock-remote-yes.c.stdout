@@ -1,0 +1,4 @@
+PE 0: localbuf = 42, remote = 0, 
+PE 1: localbuf = 1337, remote = 1337, 
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 42
+Process 1: Execution finished, variable contents: remote = 1337, localbuf = 1337

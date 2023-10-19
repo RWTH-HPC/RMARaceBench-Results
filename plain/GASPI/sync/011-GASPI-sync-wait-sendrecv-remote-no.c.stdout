@@ -1,0 +1,4 @@
+read result is 0
+received data from 0 is 0
+Process 0: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 42

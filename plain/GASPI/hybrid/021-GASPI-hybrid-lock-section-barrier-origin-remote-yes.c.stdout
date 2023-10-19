@@ -1,0 +1,6 @@
+results-20230926-221712/GASPI/hybrid/021-GASPI-hybrid-lock-section-barrier-origin-remote-yes.c:78:21: warning: call to undeclared function 'sleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+                    sleep(1); // force that gaspi_read goes through first
+                    ^
+1 warning generated.
+Process 0: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 42

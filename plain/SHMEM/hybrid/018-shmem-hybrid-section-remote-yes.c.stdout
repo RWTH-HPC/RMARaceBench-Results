@@ -1,0 +1,3 @@
+remote is 1
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 1
+Process 1: Execution finished, variable contents: remote = 1, localbuf = 1

@@ -1,0 +1,2 @@
+Process 0: Execution finished, variable contents: value = 1, value2 = 1, win_base[0] = 0
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 1

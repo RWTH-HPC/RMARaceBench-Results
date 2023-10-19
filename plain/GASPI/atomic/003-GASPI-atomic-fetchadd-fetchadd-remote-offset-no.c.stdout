@@ -1,0 +1,6 @@
+rank 0 old value = 0
+rank 2 old value = 0
+rank 1 value = 1
+Process 0: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
+Process 2: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 1

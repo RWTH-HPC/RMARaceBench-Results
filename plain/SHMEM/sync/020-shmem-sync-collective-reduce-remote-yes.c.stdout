@@ -1,0 +1,8 @@
+PE 0: 4
+PE 2: 4
+PE 3: 4
+PE 1: 0
+Process 3: Execution finished, variable contents: remote = 0, localbuf = 1
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 1
+Process 2: Execution finished, variable contents: remote = 0, localbuf = 1
+Process 1: Execution finished, variable contents: remote = 0, localbuf = 1

@@ -1,0 +1,11 @@
+results-20230926-221712/SHMEM/conflict/008-shmem-conflict-put_signal_nbi-store-local-yes.c:42:57: warning: incompatible pointer types passing 'int *' to parameter of type 'uint64_t *' (aka 'unsigned long *') [-Wincompatible-pointer-types]
+        shmem_int_put_signal_nbi(&remote, &localbuf, 1, &remote2, 1, SHMEM_SIGNAL_SET, 1);
+                                                        ^~~~~~~~
+/usr/include/shmem.h:275:114: note: passing argument to parameter 'sig_addr' here
+SHMEM_FUNCTION_ATTRIBUTES void shmem_int_put_signal_nbi(int *target, const int *source, size_t nelems, uint64_t *sig_addr, uint64_t signal, int sig_op, int pe);
+                                                                                                                 ^
+1 warning generated.
+PE 0: localbuf = 42, remote = 0, 
+PE 1: localbuf = 1, remote = 1, 
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 42
+Process 1: Execution finished, variable contents: remote = 1, localbuf = 1

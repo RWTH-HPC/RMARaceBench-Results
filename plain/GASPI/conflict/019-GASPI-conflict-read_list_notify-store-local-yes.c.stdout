@@ -1,0 +1,15 @@
+results-20230926-221712/GASPI/conflict/019-GASPI-conflict-read_list_notify-store-local-yes.c:68:13: warning: passing 'const gaspi_segment_id_t *' (aka 'const unsigned char *') to parameter of type 'gaspi_segment_id_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+            &loc_seg_id,
+            ^~~~~~~~~~~
+/usr/include/GASPI.h:756:69: note: passing argument to parameter 'segment_id_local' here
+                                         gaspi_segment_id_t * const segment_id_local,
+                                                                    ^
+results-20230926-221712/GASPI/conflict/019-GASPI-conflict-read_list_notify-store-local-yes.c:71:13: warning: passing 'const gaspi_segment_id_t *' (aka 'const unsigned char *') to parameter of type 'gaspi_segment_id_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+            &remote_seg_id,
+            ^~~~~~~~~~~~~~
+/usr/include/GASPI.h:759:69: note: passing argument to parameter 'segment_id_remote' here
+                                         gaspi_segment_id_t * const segment_id_remote,
+                                                                    ^
+2 warnings generated.
+Process 0: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0

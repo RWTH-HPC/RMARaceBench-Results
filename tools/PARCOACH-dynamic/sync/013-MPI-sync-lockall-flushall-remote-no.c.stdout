@@ -1,0 +1,30 @@
+win_base[0] is 1
+terminate called without an active exception
+[bb03880e13fc:34470] *** Process received signal ***
+[bb03880e13fc:34470] Signal: Aborted (6)
+[bb03880e13fc:34470] Signal code:  (-6)
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 1
+PARCOACH: stopping RMA analyzer, no issues found.
+[bb03880e13fc:34470] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3bfd0)[0x7f3497bf1fd0]
+[bb03880e13fc:34470] [ 1] /lib/x86_64-linux-gnu/libc.so.6(+0x8ad3c)[0x7f3497c40d3c]
+[bb03880e13fc:34470] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x12)[0x7f3497bf1f32]
+[bb03880e13fc:34470] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7f3497bdc472]
+[bb03880e13fc:34470] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0x9d919)[0x7f349789d919]
+[bb03880e13fc:34470] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa8e1a)[0x7f34978a8e1a]
+[bb03880e13fc:34470] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa8e85)[0x7f34978a8e85]
+[bb03880e13fc:34470] [ 7] /opt/parcoach/lib/libParcoachInstrumentation.so(_ZNSt8_Rb_treeIP10ompi_win_tSt4pairIKS1_St10unique_ptrI18rma_analyzer_stateSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E+0x86)[0x7f3498009b66]
+[bb03880e13fc:34470] [ 8] /opt/parcoach/lib/libParcoachInstrumentation.so(_ZNSt8_Rb_treeIP10ompi_win_tSt4pairIKS1_St10unique_ptrI18rma_analyzer_stateSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE5eraseERS3_+0xb2)[0x7f349800a262]
+[bb03880e13fc:34470] [ 9] /opt/parcoach/lib/libParcoachInstrumentation.so(rma_analyzer_stop+0xe9)[0x7f3498009a09]
+[bb03880e13fc:34470] [10] /opt/parcoach/lib/libParcoachInstrumentation.so(parcoach_rma_MPI_Win_free+0x2c)[0x7f349800b95c]
+[bb03880e13fc:34470] [11] results-20230926-222302/PARCOACH-dynamic/sync/013-MPI-sync-lockall-flushall-remote-no.c-instrumented.exe(+0x1443)[0x563b41bf8443]
+[bb03880e13fc:34470] [12] /lib/x86_64-linux-gnu/libc.so.6(+0x271ca)[0x7f3497bdd1ca]
+[bb03880e13fc:34470] [13] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f3497bdd285]
+[bb03880e13fc:34470] [14] results-20230926-222302/PARCOACH-dynamic/sync/013-MPI-sync-lockall-flushall-remote-no.c-instrumented.exe(+0x1131)[0x563b41bf8131]
+[bb03880e13fc:34470] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node bb03880e13fc exited on signal 6 (Aborted).
+--------------------------------------------------------------------------

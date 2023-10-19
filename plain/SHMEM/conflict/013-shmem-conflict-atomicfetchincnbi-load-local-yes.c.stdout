@@ -1,0 +1,5 @@
+localbuf is 1
+PE 0: localbuf = 0, remote = 0, 
+PE 1: localbuf = 1, remote = 1, 
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 0
+Process 1: Execution finished, variable contents: remote = 1, localbuf = 1

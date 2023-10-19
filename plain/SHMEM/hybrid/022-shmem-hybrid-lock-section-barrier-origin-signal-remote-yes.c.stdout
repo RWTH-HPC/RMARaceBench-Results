@@ -1,0 +1,7 @@
+results-20230926-221712/SHMEM/hybrid/022-shmem-hybrid-lock-section-barrier-origin-signal-remote-yes.c:57:21: warning: call to undeclared function 'sleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+                    sleep(1); // force that shmem_put goes through first
+                    ^
+1 warning generated.
+remote is 42
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 1
+Process 1: Execution finished, variable contents: remote = 42, localbuf = 1

@@ -1,0 +1,16 @@
+results-20230926-221712/GASPI/conflict/032-GASPI-conflict-write_list-load-remote-yes.c:66:29: warning: passing 'const gaspi_segment_id_t *' (aka 'const unsigned char *') to parameter of type 'gaspi_segment_id_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        gaspi_write_list(1, &loc_seg_id, &offset, target, &remote_seg_id, &offset, &size, queue_id, GASPI_BLOCK);
+                            ^~~~~~~~~~~
+/usr/include/GASPI.h:417:63: note: passing argument to parameter 'segment_id_local' here
+                                   gaspi_segment_id_t * const segment_id_local,
+                                                              ^
+results-20230926-221712/GASPI/conflict/032-GASPI-conflict-write_list-load-remote-yes.c:66:59: warning: passing 'const gaspi_segment_id_t *' (aka 'const unsigned char *') to parameter of type 'gaspi_segment_id_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        gaspi_write_list(1, &loc_seg_id, &offset, target, &remote_seg_id, &offset, &size, queue_id, GASPI_BLOCK);
+                                                          ^~~~~~~~~~~~~~
+/usr/include/GASPI.h:420:63: note: passing argument to parameter 'segment_id_remote' here
+                                   gaspi_segment_id_t * const segment_id_remote,
+                                                              ^
+2 warnings generated.
+remote_data[0] is 0
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
+Process 0: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0

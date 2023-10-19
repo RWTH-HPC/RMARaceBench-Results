@@ -1,0 +1,52 @@
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] MUST configuration ... distributed checks without application crash handling
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] Weaver ... success
+[MUST] Generating P^nMPI configuration ... success
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: ThreadSanitizer support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Note: MPI RMA support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Executing application:
+LLVMSymbolizer: error reading file: No such file or directory
+==================
+[1m[31mWARNING: ThreadSanitizer: data race (pid=11848)
+[1m[0m[1m[34m  Write of size 4 at 0x7fd0972a0008 by thread T15:
+[1m[0m    #0 MPI_Put <null> (libpnmpi.so+0x90a80) (BuildId: e3db7a82e7591a6dd7516a54d7c6caa275de0cfa)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x000100000002)
+    #3 <null> <null> (0x000100000005)
+    #4 <null> <null> (0x558f5556cbf6)
+
+[1m[34m  Previous write of size 4 at 0x7fd0972a0008 by thread T14:
+[1m[0m    #0 MPI_Put <null> (libpnmpi.so+0x90a80) (BuildId: e3db7a82e7591a6dd7516a54d7c6caa275de0cfa)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x000100000000)
+    #3 <null> <null> (0x000100000005)
+    #4 <null> <null> (0x55b05bb98b99)
+
+[1m[32m  Location is global '??' at 0x7fd09729e000 (osc_rdma.bb03880e13fc.22a00001.10 (deleted)+0x2008)
+
+[1m[0m[1m[36m  Thread T15 'rank 2' (tid=0, running) created by thread T3 at:
+[1m[0m    #0 must::TargetChecks::targetOpComplete(unsigned long, unsigned long, unsigned long*, int) <null> (libtargetChecks.so+0xeb9a) (BuildId: 8ac343c4bbba3b889a06942f20dd4effd7bf8e7a)
+
+[1m[36m  Thread T14 'rank 0' (tid=0, running) created by thread T3 at:
+[1m[0m    #0 must::TargetChecks::targetOpComplete(unsigned long, unsigned long, unsigned long*, int) <null> (libtargetChecks.so+0xeb9a) (BuildId: 8ac343c4bbba3b889a06942f20dd4effd7bf8e7a)
+
+SUMMARY: ThreadSanitizer: data race (/opt/must/lib/libpnmpi.so+0x90a80) (BuildId: e3db7a82e7591a6dd7516a54d7c6caa275de0cfa) in MPI_Put
+==================
+Process 2: Execution finished, variable contents: value = 2, value2 = 2, win_base[0] = 0
+Process 0: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 2
+/usr/bin/addr2line: '-f': No such file
+/usr/bin/addr2line: '-f': No such file
+[MUST-REPORT] Error: from: call MPI_Init_thread@1: Remote data race at rank 1 between a write of size 4 at MPI_Put@1 from rank 2 and a previous write of size 4 at MPI_Put@2 from rank 0. References (possibly of representative): Reference 1: call MPI_Put@rank 2, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20230926-222302/MUST/conflict/024-MPI-conflict-put-put-remote-yes.c:65
+[MUST-REPORT] Reference 2: call MPI_Put@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20230926-222302/MUST/conflict/024-MPI-conflict-put-put-remote-yes.c:59
+[MUST-REPORT] 
+ThreadSanitizer: reported 1 warnings
+[MUST] Execution finished.

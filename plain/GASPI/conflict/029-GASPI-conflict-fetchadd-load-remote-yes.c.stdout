@@ -1,0 +1,10 @@
+results-20230926-221712/GASPI/conflict/029-GASPI-conflict-fetchadd-load-remote-yes.c:63:56: warning: incompatible pointer types passing 'int *' to parameter of type 'gaspi_atomic_value_t *' (aka 'unsigned long *') [-Wincompatible-pointer-types]
+        gaspi_atomic_fetch_add(remote_seg_id, 0, 1, 1, &localbuf[0], GASPI_BLOCK);
+                                                       ^~~~~~~~~~~~
+/usr/include/GASPI.h:530:71: note: passing argument to parameter 'val_old' here
+                                         gaspi_atomic_value_t * const val_old,
+                                                                      ^
+1 warning generated.
+remote_data[0] is 0
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 1
+Process 0: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0

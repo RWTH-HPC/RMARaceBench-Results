@@ -1,0 +1,7 @@
+read result is 42
+gaspi_allreduce result is 3
+gaspi_allreduce result is 3
+gaspi_allreduce result is 3
+Process 0: Execution finished, variable contents: localbuf[0] = 42, remote_data[0] = 0
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 42
+Process 2: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0

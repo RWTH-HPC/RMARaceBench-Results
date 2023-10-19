@@ -1,0 +1,57 @@
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+Using prebuild /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] MUST configuration ... distributed checks without application crash handling
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/53d507fcaaf1ad31fa605609e1c086ee
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: ThreadSanitizer support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Note: MPI RMA support requires the application to be built with either a GNU-based compiler in version 9 to 12 or an LLVM-based compiler in version 6 to 13.
+[MUST] Executing application:
+win_base[0] is 42
+LLVMSymbolizer: error reading file: No such file or directory
+==================
+[1m[31mWARNING: ThreadSanitizer: data race (pid=31430)
+[1m[0m[1m[34m  Write of size 4 at 0x7f3884e1b008 by thread T15 (mutexes: write M0):
+[1m[0m    #0 MPI_Put <null> (libpnmpi.so+0x90a80) (BuildId: e3db7a82e7591a6dd7516a54d7c6caa275de0cfa)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x000100000000)
+    #3 <null> <null> (0x000100000006)
+    #4 <null> <null> (0x55997b49ac76)
+
+[1m[34m  Previous read of size 4 at 0x7f3884e1b008 by thread T14:
+[1m[0m    #0 .omp_outlined._debug__ /rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:80:51 (017-MPI-hybrid-section-remote-yes.c.exe-must+0xd1ec2) (BuildId: 2b93272cc930638be5e157b6141eea41b6985aa8)
+    #1 .omp_outlined. /rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:70:1 (017-MPI-hybrid-section-remote-yes.c.exe-must+0xd1f65) (BuildId: 2b93272cc930638be5e157b6141eea41b6985aa8)
+    #2 __kmp_invoke_microtask <null> (libomp.so.5+0xd8022) (BuildId: 861597ad0fca1891cd9974a9c37a8e5088206e6e)
+    #3 main /rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:70:1 (017-MPI-hybrid-section-remote-yes.c.exe-must+0xd1cdd) (BuildId: 2b93272cc930638be5e157b6141eea41b6985aa8)
+
+[1m[32m  Location is global '??' at 0x7f3884e19000 (osc_rdma.bb03880e13fc.76220001.10 (deleted)+0x2008)
+
+[1m[0m[1m[35m  Mutex M0 (0x7b100001eff8) created at:
+[1m[0m    [failed to restore the stack]
+
+[1m[36m  Thread T15 'rank 0' (tid=0, running) created by thread T3 at:
+[1m[0m    #0 must::TargetChecks::targetOpComplete(unsigned long, unsigned long, unsigned long*, int) <null> (libtargetChecks.so+0xeb9a) (BuildId: 8ac343c4bbba3b889a06942f20dd4effd7bf8e7a)
+
+[1m[36m  Thread T14 (tid=31443, running) created by main thread at:
+[1m[0m    #0 pthread_create <null> (017-MPI-hybrid-section-remote-yes.c.exe-must+0x52c0d) (BuildId: 2b93272cc930638be5e157b6141eea41b6985aa8)
+    #1 <null> <null> (libomp.so.5+0xb1197) (BuildId: 861597ad0fca1891cd9974a9c37a8e5088206e6e)
+
+SUMMARY: ThreadSanitizer: data race (/opt/must/lib/libpnmpi.so+0x90a80) (BuildId: e3db7a82e7591a6dd7516a54d7c6caa275de0cfa) in MPI_Put
+==================
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 42
+Process 0: Execution finished, variable contents: value = 42, value2 = 2, win_base[0] = 0
+/usr/bin/addr2line: '-f': No such file
+[MUST-REPORT] Error: from: call .omp_outlined._debug__@1: Remote data race at rank 1 between a write of size 4 at MPI_Put@1 from rank 0 and a previous read of size 4 at .omp_outlined._debug__@2 from rank 1. References (possibly of representative): Reference 1: call MPI_Put@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:64
+[MUST-REPORT] Reference 2: call .omp_outlined._debug__.omp_outlined._debug__
+[MUST-REPORT] /rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:80
+[MUST-REPORT] @rank 1, threadid 0;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  .omp_outlined._debug__@/rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:80
+[MUST-REPORT] #1  .omp_outlined.@/rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:70
+[MUST-REPORT] #2  __kmp_invoke_microtask@/usr/lib/llvm-15/lib/libomp.so.5:0xd8022
+[MUST-REPORT] #3  main@/rmaracebench/results-20230926-222302/MUST/hybrid/017-MPI-hybrid-section-remote-yes.c:70
+[MUST-REPORT] 
+ThreadSanitizer: reported 1 warnings
+[MUST] Execution finished.
